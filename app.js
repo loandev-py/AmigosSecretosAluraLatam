@@ -65,30 +65,28 @@ function eliminarAmigo(nombre) {
     resultado.innerHTML = '';
 }
 
-// Function to draw secret friends (previous implementation remains the same)
+// Function to draw secret friends
 function sortearAmigo() {
     const resultado = document.getElementById('resultado');
 
-    // Validate number of friends
+    // Validate that there are friends
+    if (amigos.length === 0) {
+        alert("No hay amigos para sortear. Agregue amigos primero.");
+        return;
+    }
+
+    // Validate number of friends for drawing
     if (amigos.length < 3) {
         alert("Debe agregar al menos 3 amigos para sortear.");
         return;
     }
 
-    // Shuffle algorithm (Fisher-Yates)
-    const amigosBarajados = [...amigos];
-    for (let i = amigosBarajados.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [amigosBarajados[i], amigosBarajados[j]] = [amigosBarajados[j], amigosBarajados[i]];
-    }
+    // Generate random index
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    
+    // Get randomly selected friend
+    const amigoSorteado = amigos[indiceAleatorio];
 
-    // Ensure no one gets themselves
-    const amigosSecretos = amigosBarajados.map((amigo, index) => {
-        return amigo === amigos[index] ? amigosBarajados[(index + 1) % amigos.length] : amigo;
-    });
-
-    // Display results
-    resultado.innerHTML = amigos.map((amigo, index) => 
-        `<li>${amigo} → ${amigosSecretos[index]}</li>`
-    ).join('');
+    // Show result
+    resultado.innerHTML = `<li>Amigo sorteado: ${amigoSorteado}</li>`;
 }
