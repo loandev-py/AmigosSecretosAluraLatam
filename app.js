@@ -1,12 +1,28 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 // Array to store friends
 let amigos = [];
+
+// Function to render friends list
+function renderizarListaAmigos() {
+    const listaAmigos = document.getElementById('listaAmigos');
+    
+    // Clear existing list
+    listaAmigos.innerHTML = '';
+    
+    // Iterate through friends and create list items
+    for (let i = 0; i < amigos.length; i++) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${amigos[i]} 
+            <button onclick="eliminarAmigo('${amigos[i]}')" class="delete-btn">✖</button>
+        `;
+        listaAmigos.appendChild(li);
+    }
+}
 
 // Function to add a friend
 function agregarAmigo() {
     const inputAmigo = document.getElementById('amigo');
     const nombreAmigo = inputAmigo.value.trim();
-    const listaAmigos = document.getElementById('listaAmigos');
     const resultado = document.getElementById('resultado');
 
     // Validate input
@@ -25,13 +41,8 @@ function agregarAmigo() {
     // Add friend to array
     amigos.push(nombreAmigo);
 
-    // Create list item with delete button
-    const li = document.createElement('li');
-    li.innerHTML = `
-        ${nombreAmigo} 
-        <button onclick="eliminarAmigo('${nombreAmigo}')" class="delete-btn">✖</button>
-    `;
-    listaAmigos.appendChild(li);
+    // Render updated list
+    renderizarListaAmigos();
 
     // Clear input
     inputAmigo.value = '';
@@ -42,28 +53,19 @@ function agregarAmigo() {
 
 // Function to delete a friend
 function eliminarAmigo(nombre) {
-    const listaAmigos = document.getElementById('listaAmigos');
     const resultado = document.getElementById('resultado');
 
     // Remove from array
     amigos = amigos.filter(amigo => amigo !== nombre);
 
-    // Remove from DOM
-    listaAmigos.innerHTML = '';
-    amigos.forEach(amigo => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            ${amigo} 
-            <button onclick="eliminarAmigo('${amigo}')" class="delete-btn">✖</button>
-        `;
-        listaAmigos.appendChild(li);
-    });
+    // Render updated list
+    renderizarListaAmigos();
 
     // Clear previous results
     resultado.innerHTML = '';
 }
 
-// Function to draw secret friends
+// Function to draw secret friends (previous implementation remains the same)
 function sortearAmigo() {
     const resultado = document.getElementById('resultado');
 
