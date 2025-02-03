@@ -1,55 +1,50 @@
-🎲 Amigo Secreto (Secret Friend Drawing App)
-📝 Proyecto
+# 🎲 Amigo Secreto (Secret Friend Drawing App)
+
+## 📝 Proyecto
 Aplicación web para sortear amigos secretos de manera simple e interactiva.
-✨ Características
 
-Agregar amigos a la lista
-Eliminar participantes
-Validación de nombres
-Sorteo aleatorio
-Interfaz intuitiva
+## ✨ Características
+- Agregar amigos a la lista
+- Eliminar participantes
+- Validación de nombres
+- Sorteo aleatorio
+- Interfaz intuitiva
 
-🛠 Tecnologías
+## 🛠 Tecnologías
+- HTML5
+- CSS3
+- JavaScript Vanilla
 
-HTML5
-CSS3
-JavaScript Vanilla
+## 📦 Instalación
+### Requisitos
+- Navegador web moderno
 
-📦 Instalación
-Requisitos
+### Pasos
+1. Clonar repositorio:
+   ```bash
+   git clone https://github.com/usuario/amigo-secreto.git
+   ```
+2. Abrir `index.html` en el navegador
 
-Navegador web moderno
+## 🚀 Uso
+### Agregar Amigos
+1. Escribe nombre
+2. Pulsa botón "Añadir"
 
-Pasos
+### Eliminar Amigos
+- Haz clic en botón "✖"
 
-Clonar repositorio
+### Sortear
+1. Pulsa "Sortear amigo"
+2. Visualiza resultado aleatorio
 
-bashCopygit clone https://github.com/usuario/amigo-secreto.git
+## 🔒 Restricciones
+- Mínimo 3 amigos para sorteo
+- Sin nombres duplicados
 
-Abrir index.html en navegador
-
-🚀 Uso
-Agregar Amigos
-
-Escribe nombre
-Pulsa botón "Añadir"
-
-Eliminar Amigos
-
-Haz clic en botón "✖"
-
-Sortear
-
-Pulsa "Sortear amigo"
-Visualiza resultado aleatorio
-
-🔒 Restricciones
-
-Mínimo 3 amigos para sorteo
-Sin nombres duplicados
-
-📄 Estructura
-Copyamigo-secreto/
+## 📄 Estructura
+```
+amigo-secreto/
 ├── index.html
 ├── style.css
 ├── app.js
